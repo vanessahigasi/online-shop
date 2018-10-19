@@ -15,9 +15,9 @@ public class Example {
 
     public static void main(String[] args) {
 
-        Product p1 = new  Product("Macbook",1500);
-        Product p2 = new  Product("iphone xs",1200);
-        Product p3 = new  Product("pixel 3",900);
+        Product p1 = new  Product("Macbook", "Apple",1500);
+        Product p2 = new  Product("iphone xs", "Apple",1200);
+        Product p3 = new  Product("pixel 3","Google",900);
 
         ProductDatabase productDatabase = new ProductDatabase();
         productDatabase.add(p1);
@@ -28,7 +28,17 @@ public class Example {
         System.out.println("The name of the product is" + product.getName());
 
         int count = productDatabase.getCount();
-        System.out.println("I have" + count);
+        System.out.println("I have " + count + " products in the database");
+
+        int countApple = productDatabase.getCountByBrand("Apple");
+        System.out.println("I have " + countApple + " Apple products") ;
+
+        List<Product> appleProducts = productDatabase.getByBrand("Apple");
+        System.out.println("Products by Apple " + appleProducts);
+        for (Product p : appleProducts) {
+            System.out.println(p.getName() +  ", " + p.getBrand() + ", " + p.getPrice());
+
+        }
 
         List<CartItem> items1 = new ArrayList<>();
 
