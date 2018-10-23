@@ -43,6 +43,33 @@ public class ProductDatabase {
 
     // TODO: method remove, given an id, removes that product from the database
 
+
+    public List<Product> getByPriceRange(int min, int max){
+
+        List<Product> result = new ArrayList<>();
+
+        for (Product product : productMap.values()) {
+            if (product.getPrice() >= min) {
+
+                if (product.getPrice()<= max) {
+                    result.add(product);
+                }
+            }
+
+        }
+
+        return result;
+    }
+
+    public List<Product> remove(int x){
+
+        List<Product> result = new ArrayList<>();
+
+        // TODO Loop through id, if get right id - remove it.
+
+        return result;
+    } 
+
     public int getCountByBrand(String brand) {
 
         List<Product> products = getByBrand(brand);
@@ -61,4 +88,6 @@ public class ProductDatabase {
         }
         return result;
     }
+
+
 }

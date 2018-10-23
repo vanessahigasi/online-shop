@@ -40,6 +40,11 @@ public class Example {
 
         }
 
+        List<Product> minAndMaxPrice = productDatabase.getByPriceRange(900, 1300);
+        System.out.println("You can buy " + minAndMaxPrice);
+
+        List<Product> removeProduct = productDatabase.remove(1);
+
         List<CartItem> items1 = new ArrayList<>();
 
         items1.add(new CartItem(p1,2));
