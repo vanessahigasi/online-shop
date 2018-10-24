@@ -16,13 +16,16 @@ public class ProductDatabase {
         this.productMap = new HashMap<>();
     }
 
-    public void add (Product product) {
+    /** Adds a product to the database and returns the id that was set to the it */
+
+    public long add (Product product) {
 
         product.setId(this.nextId);
 
         productMap.put(product.getId(),product);
 
         this.nextId++;
+        return product.getId();
     }
 
     public Product get(long id){
