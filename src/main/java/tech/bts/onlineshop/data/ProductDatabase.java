@@ -2,10 +2,7 @@ package tech.bts.onlineshop.data;
 
 import tech.bts.onlineshop.model.Product;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class ProductDatabase {
 
@@ -44,7 +41,7 @@ public class ProductDatabase {
     // TODO: method remove, given an id, removes that product from the database
 
 
-    public List<Product> getByPriceRange(int min, int max){
+    public List<Product> getByPriceRange(double min, double max){
 
         List<Product> result = new ArrayList<>();
 
@@ -61,14 +58,18 @@ public class ProductDatabase {
         return result;
     }
 
-    public List<Product> remove(int x){
+    public void remove(long id){
 
-        List<Product> result = new ArrayList<>();
+         productMap.remove(id);
 
-        // TODO Loop through id, if get right id - remove it.
+    }
 
-        return result;
-    } 
+    public Collection<Product> getAll() {
+
+
+
+        return productMap.values();
+    }
 
     public int getCountByBrand(String brand) {
 

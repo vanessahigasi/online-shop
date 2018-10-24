@@ -6,10 +6,7 @@ import tech.bts.onlineshop.model.CartItem;
 import tech.bts.onlineshop.model.Product;
 import tech.bts.onlineshop.model.ShoppingCart;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Example {
 
@@ -41,9 +38,32 @@ public class Example {
         }
 
         List<Product> minAndMaxPrice = productDatabase.getByPriceRange(900, 1300);
-        System.out.println("You can buy " + minAndMaxPrice);
+        System.out.println("Products by price " );
+        for (Product p : minAndMaxPrice) {
+            System.out.println(p.getName() +  ", " + p.getBrand() + ", " + p.getPrice());
+        }
 
-        List<Product> removeProduct = productDatabase.remove(1);
+        productDatabase.remove(2);
+        productDatabase.remove(1);
+
+        System.out.println("All products after removing ");
+        Collection<Product> allProducts = productDatabase.getAll();
+        for (Product p : allProducts) {
+            System.out.println(p);
+        }
+
+        Product p4 = new Product("cable", "Apple", 10);
+        productDatabase.add(p4);
+
+        System.out.println("Number of products now " + productDatabase.getCount());
+
+        long requestedId = 2;
+        Product requestedProduct = productDatabase.get(requestedId);
+        if (requestedProduct != null) {
+            System.out.println("The name of the product is: " + requestedProduct.getName());
+        } else {
+            System.out.println("The product with ID " + requestedId + "doesn't exist");
+        }
 
         List<CartItem> items1 = new ArrayList<>();
 
