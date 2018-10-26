@@ -30,4 +30,31 @@ public class ProductService {
         return p;
     }
 
+    //1- create a method in ProductService that, given a product id and a desired quantity, returns true if the quantity is possible to deliver, or false otherwise.
+    // For example, imagine that there are 15 units of that product in stock.
+    // If I want 20 units then the method would return false. If I want 10 units then the method would return true.
+
+    public boolean checkProductAvailability( long productId, int quantity) {
+
+        Product product = productDatabase.get(productId);
+        if (product.getQuantity() >= quantity ) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+    //2- create a method in ProductService that, given a product id and a desired quantity, returns the quantity that is possible to deliver.
+    // For example, imagine that there are 15 units of that product in stock.
+    // If I want 20 units then the method would return 15.
+    // If I want 10 units then the method would return 10.
+
+    public int getAvailiableQuantity(long productId, int quantity) {
+
+        Product product = productDatabase.get(productId);
+        return Math.min(product.getQuantity(), quantity);
+
+    }
+
 }

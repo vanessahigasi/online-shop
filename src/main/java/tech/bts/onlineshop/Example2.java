@@ -21,5 +21,10 @@ public class Example2 {
 
         Product p = productService.getProductById(iPhoneId);
         System.out.println("There are " + p.getQuantity() + " units of " + p.getName()+ " in stock" );
+
+        boolean p1 = productService.checkProductAvailability(iPhoneId, 20);
+        System.out.println(p1);
+
     }
+
 }
