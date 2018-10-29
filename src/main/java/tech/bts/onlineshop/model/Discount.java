@@ -7,7 +7,7 @@ public class Discount {
     private double amount;
     private boolean percentage;
 
-    public Discount() {
+    public Discount(String id,String name, double amount, boolean percentage) {
         this.id = id;
         this.name = name;
         this.amount = amount;
