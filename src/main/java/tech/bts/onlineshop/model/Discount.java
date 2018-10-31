@@ -14,6 +14,10 @@ public class Discount {
         this.percentage = percentage;
     }
 
+    public Object addDiscount() {
+        return addDiscount();
+    }
+
     public String getId() {
         return id;
     }
